@@ -30,3 +30,10 @@ jobs:
      - name: build project
        if: github.event_name == 'push'
        run: npm run build
+
+     - name: deploy to staging
+       if: github.event_name == 'push'
+       run: npx surge --project ./build --domain 201720200@acad.unijuazeiro.edu.br
+       env: 
+         SURGE_LOGIN: ${{secrets.SURGE_LOGIN}}
+         SURGE_TOKEN: ${{secrets.SURGE_TOKEN}}
