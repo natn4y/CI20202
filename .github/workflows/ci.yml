@@ -8,4 +8,9 @@ jobs:
   build: 
     runs-on: ubuntu-20.04
     steps:
-     - run: ls -la
+     - name: show projects files
+       run: ls -la
+     - name: checkout project
+       uses: action/checkout@2
+     - name: show projects files
+       run: ls -la
